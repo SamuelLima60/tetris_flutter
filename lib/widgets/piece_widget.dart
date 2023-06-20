@@ -24,7 +24,7 @@ class PieceWidget {
       case Tetromino.I:
         position = [-4, -5, -6, -7];
       case Tetromino.O:
-        position = [-26, -16, -6, -5];
+        position = [-15, -16, -5, -6];
       case Tetromino.S:
         position = [-15, -14, -6, -5];
         break;
@@ -87,7 +87,7 @@ class PieceWidget {
               position[1] - 1,
               position[1],
               position[1] + 1,
-              position[1] + rowLength + 1,
+              position[1] + rowLength - 1,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -101,7 +101,7 @@ class PieceWidget {
               position[1] + rowLength,
               position[1],
               position[1] - rowLength,
-              position[1] - rowLength + 1,
+              position[1] - rowLength - 1,
             ];
             if (piecePositionValid(newPosition)) {
               position = newPosition;
@@ -120,7 +120,7 @@ class PieceWidget {
             if (piecePositionValid(newPosition)) {
               position = newPosition;
 
-              rotationState = (rotationState + 1) % 4;
+              rotationState = 0;
             }
             break;
         }
@@ -144,10 +144,10 @@ class PieceWidget {
             break;
           case 1:
             newPosition = [
-              position[1] - 1,
-              position[1],
-              position[1] + 1,
               position[1] - rowLength - 1,
+              position[1],
+              position[1] - 1,
+              position[1] + 1,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -171,16 +171,16 @@ class PieceWidget {
             break;
           case 3:
             newPosition = [
-              position[1] - rowLength + 1,
-              position[1],
               position[1] + 1,
+              position[1],
+              position[1] - 1,
               position[1] + rowLength + 1,
             ];
 
             if (piecePositionValid(newPosition)) {
               position = newPosition;
 
-              rotationState = (rotationState + 1) % 4;
+              rotationState = 0;
             }
             break;
         }
@@ -189,12 +189,11 @@ class PieceWidget {
       case Tetromino.S:
         switch (rotationState) {
           case 0:
-          case 2:
             newPosition = [
-              position[1] - 1,
               position[1],
+              position[1] + 1,
+              position[1] + rowLength - 1,
               position[1] + rowLength,
-              position[1] + rowLength + 1,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -204,18 +203,45 @@ class PieceWidget {
             }
             break;
           case 1:
-          case 3:
             newPosition = [
-              position[1] + 1,
-              position[1],
-              position[1] - rowLength,
-              position[1] - rowLength - 1,
+              position[0] - rowLength,
+              position[0],
+              position[0] + 1,
+              position[0] + rowLength + 1,
             ];
 
             if (piecePositionValid(newPosition)) {
               position = newPosition;
 
               rotationState = (rotationState + 1) % 2;
+            }
+            break;
+          case 2:
+            newPosition = [
+              position[1],
+              position[1] + 1,
+              position[1] + rowLength - 1,
+              position[1] + rowLength,
+            ];
+
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = (rotationState + 1) % 2;
+            }
+            break;
+          case 3:
+            newPosition = [
+              position[0] - rowLength,
+              position[0],
+              position[0] + 1,
+              position[0] + rowLength + 1,
+            ];
+
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = 0;
             }
             break;
         }
@@ -224,12 +250,24 @@ class PieceWidget {
       case Tetromino.Z:
         switch (rotationState) {
           case 0:
-          case 2:
             newPosition = [
-              position[1] - rowLength - 1,
+              position[0] + rowLength - 2,
               position[1],
-              position[1] - 1,
-              position[1] + rowLength,
+              position[2] + rowLength - 1,
+              position[3] + 1,
+            ];
+
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = (rotationState + 1) % 2;
+            }
+          case 1:
+            newPosition = [
+              position[0] - rowLength + 2,
+              position[1],
+              position[2] - rowLength + 1,
+              position[3] - 1,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -238,19 +276,32 @@ class PieceWidget {
               rotationState = (rotationState + 1) % 2;
             }
             break;
-          case 1:
+          case 2:
+            newPosition = [
+              position[0] + rowLength - 2,
+              position[1],
+              position[2] + rowLength - 1,
+              position[3] + 1,
+            ];
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = (rotationState + 1) % 2;
+            }
+            break;
+
           case 3:
             newPosition = [
-              position[1] + rowLength + 1,
+              position[0] - rowLength + 2,
               position[1],
-              position[1] + 1,
-              position[1] - rowLength,
+              position[2] - rowLength + 1,
+              position[3] - 1,
             ];
 
             if (piecePositionValid(newPosition)) {
               position = newPosition;
 
-              rotationState = (rotationState + 1) % 2;
+              rotationState = 0;
             }
             break;
         }
@@ -259,12 +310,37 @@ class PieceWidget {
       case Tetromino.I:
         switch (rotationState) {
           case 0:
-          case 2:
             newPosition = [
-              position[1] - 2 * rowLength,
+              position[1] - 1,
+              position[1],
+              position[1] + 1,
+              position[1] + 2,
+            ];
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = (rotationState + 1) % 2;
+            }
+            break;
+          case 1:
+            newPosition = [
               position[1] - rowLength,
               position[1],
               position[1] + rowLength,
+              position[1] + 2 * rowLength,
+            ];
+            if (piecePositionValid(newPosition)) {
+              position = newPosition;
+
+              rotationState = (rotationState + 1) % 2;
+            }
+            break;
+          case 2:
+            newPosition = [
+              position[1] + 1,
+              position[1],
+              position[1] - 1,
+              position[1] - 2,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -273,13 +349,13 @@ class PieceWidget {
               rotationState = (rotationState + 1) % 2;
             }
             break;
-          case 1:
+
           case 3:
             newPosition = [
-              position[1] - 1,
+              position[1] + rowLength,
               position[1],
-              position[1] + 1,
-              position[1] + 2,
+              position[1] - rowLength,
+              position[1] - 2 * rowLength,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -295,10 +371,10 @@ class PieceWidget {
         switch (rotationState) {
           case 0:
             newPosition = [
-              position[1] - 1,
-              position[1],
-              position[1] + 1,
-              position[1] + rowLength,
+              position[2] - rowLength,
+              position[2],
+              position[2] + 1,
+              position[2] + rowLength,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -309,10 +385,10 @@ class PieceWidget {
             break;
           case 1:
             newPosition = [
-              position[1] - rowLength,
+              position[1] - 1,
               position[1],
-              position[1] + rowLength,
               position[1] + 1,
+              position[1] + rowLength,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -323,10 +399,10 @@ class PieceWidget {
             break;
           case 2:
             newPosition = [
+              position[1] - rowLength,
               position[1] - 1,
               position[1],
-              position[1] + 1,
-              position[1] - rowLength,
+              position[1] + rowLength,
             ];
 
             if (piecePositionValid(newPosition)) {
@@ -337,16 +413,16 @@ class PieceWidget {
             break;
           case 3:
             newPosition = [
-              position[1] + rowLength,
-              position[1],
-              position[1] - rowLength,
-              position[1] - 1,
+              position[2] - rowLength,
+              position[2] - 1,
+              position[2],
+              position[2] + 1,
             ];
 
             if (piecePositionValid(newPosition)) {
               position = newPosition;
 
-              rotationState = (rotationState + 1) % 4;
+              rotationState = 0;
             }
             break;
         }
