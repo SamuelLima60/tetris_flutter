@@ -2,8 +2,8 @@
 
 Desafie suas habilidades de encaixe com este jogo clássico recriado em Flutter. Divirta-se e alcance pontuações altas!
 
-![Pagina Home](https://raw.githubusercontent.com/SamuelLima60/main/tetris_flutter/home.png)
-![Pagina Game](https://raw.githubusercontent.com/SamuelLima60/main/tetris_flutter/game.png)
+![Pagina Home](https://raw.githubusercontent.com/SamuelLima60/tetris_flutter/main/screenshot/home.png)
+![Pagina Game](https://raw.githubusercontent.com/SamuelLima60/tetris_flutter/main/screenshot/game.png)
 
 ## Requisitos prévios
  - Flutter SDK instalado em seu computador
