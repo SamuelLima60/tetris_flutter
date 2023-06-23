@@ -1,16 +1,19 @@
 # tetrisflutter
 
-A new Flutter project.
+Desafie suas habilidades de encaixe com este jogo clássico recriado em Flutter. Divirta-se e alcance pontuações altas!
 
-## Getting Started
+![Pagina Home](https://raw.githubusercontent.com/SamuelLima60/tetris_flutter/home.png)
+![Pagina Game](https://raw.githubusercontent.com/SamuelLima60/tetris_flutter/game.png)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Requisitos prévios
+ - Flutter SDK instalado em seu computador
+ - Visual Studio Code ou outra IDE de sua escolha
+ - Conhecimento básico de programação em Dart
+ 
+## Instruções de configuração
+ - Clone o repositório do GitHub para seu computador usando o comando ```git clone https://github.com/SamuelLima60/tetris_flutter.git```
+ - Abra o projeto no Visual Studio Code ou na IDE de sua escolha.
+ 
+## Iniciando o aplicativo
+ - Conecte seu dispositivo móvel ou inicie um emulador.
+ - Clique no botão "Run" ou pressione F5 para iniciar o aplicativo.

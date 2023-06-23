@@ -264,46 +264,45 @@ class _BoardWidgetState extends State<BoardWidget>
                 },
               ),
             ),
+            const SizedBox(height: 25),
             Text(
               gameOver == false ? 'Score: $currentScore' : '',
               style: const TextStyle(color: Colors.white),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 25),
-              child: gameOver == false
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        IconButton(
-                          onPressed: moveLeft,
-                          icon: const Icon(Icons.arrow_back),
-                          color: Colors.white,
-                        ),
-                        IconButton(
-                          onPressed: moveRight,
-                          icon: const Icon(Icons.arrow_forward),
-                          color: Colors.white,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            _framesPerUpdate -= 25;
-                          },
-                          icon: const Icon(Icons.arrow_downward),
-                          color: Colors.white,
-                        ),
-                        IconButton(
-                          onPressed: rotatePiece,
-                          icon: const Icon(Icons.rotate_right),
-                          color: Colors.white,
-                        ),
-                      ],
-                    )
-                  : IconButton(
-                      onPressed: resetGame,
-                      icon: const Icon(Icons.restart_alt),
-                      color: Colors.white,
-                    ),
-            ),
+            gameOver == false
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        onPressed: moveLeft,
+                        icon: const Icon(Icons.arrow_back),
+                        color: Colors.white,
+                      ),
+                      IconButton(
+                        onPressed: moveRight,
+                        icon: const Icon(Icons.arrow_forward),
+                        color: Colors.white,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          _framesPerUpdate -= 25;
+                        },
+                        icon: const Icon(Icons.arrow_downward),
+                        color: Colors.white,
+                      ),
+                      IconButton(
+                        onPressed: rotatePiece,
+                        icon: const Icon(Icons.rotate_right),
+                        color: Colors.white,
+                      ),
+                    ],
+                  )
+                : IconButton(
+                    onPressed: resetGame,
+                    icon: const Icon(Icons.restart_alt),
+                    color: Colors.white,
+                  ),
+            const SizedBox(height: 25),
           ],
         );
       }),
